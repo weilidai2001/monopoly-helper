@@ -1,0 +1,233 @@
+{
+  "properties": [
+    {
+      "id": 1,
+      "name": "Old Kent Road",
+      "color": "brown",
+      "price": 60,
+      "rent": 2,
+      "owner": null
+    },
+    {
+      "id": 2,
+      "name": "Whitechapel Road",
+      "color": "brown",
+      "price": 60,
+      "rent": 4,
+      "owner": null
+    },
+    {
+      "id": 3,
+      "name": "Kings Cross Station",
+      "color": "station",
+      "price": 200,
+      "rent": 25,
+      "owner": null
+    },
+    {
+      "id": 4,
+      "name": "The Angel Islington",
+      "color": "lightblue",
+      "price": 100,
+      "rent": 6,
+      "owner": null
+    },
+    {
+      "id": 5,
+      "name": "Euston Road",
+      "color": "lightblue",
+      "price": 100,
+      "rent": 6,
+      "owner": null
+    },
+    {
+      "id": 6,
+      "name": "Pentonville Road",
+      "color": "lightblue",
+      "price": 120,
+      "rent": 8,
+      "owner": null
+    },
+    {
+      "id": 7,
+      "name": "Pall Mall",
+      "color": "pink",
+      "price": 140,
+      "rent": 10,
+      "owner": null
+    },
+    {
+      "id": 8,
+      "name": "Electric Company",
+      "color": "utility",
+      "price": 150,
+      "rent": 4,
+      "owner": null
+    },
+    {
+      "id": 9,
+      "name": "Whitehall",
+      "color": "pink",
+      "price": 140,
+      "rent": 10,
+      "owner": null
+    },
+    {
+      "id": 10,
+      "name": "Northumberland Avenue",
+      "color": "pink",
+      "price": 160,
+      "rent": 12,
+      "owner": null
+    },
+    {
+      "id": 11,
+      "name": "Marylebone Station",
+      "color": "station",
+      "price": 200,
+      "rent": 25,
+      "owner": null
+    },
+    {
+      "id": 12,
+      "name": "Bow Street",
+      "color": "orange",
+      "price": 180,
+      "rent": 14,
+      "owner": null
+    },
+    {
+      "id": 13,
+      "name": "Marlborough Street",
+      "color": "orange",
+      "price": 180,
+      "rent": 14,
+      "owner": null
+    },
+    {
+      "id": 14,
+      "name": "Vine Street",
+      "color": "orange",
+      "price": 200,
+      "rent": 16,
+      "owner": null
+    },
+    {
+      "id": 15,
+      "name": "Strand",
+      "color": "red",
+      "price": 220,
+      "rent": 18,
+      "owner": null
+    },
+    {
+      "id": 16,
+      "name": "Fleet Street",
+      "color": "red",
+      "price": 220,
+      "rent": 18,
+      "owner": null
+    },
+    {
+      "id": 17,
+      "name": "Trafalgar Square",
+      "color": "red",
+      "price": 240,
+      "rent": 20,
+      "owner": null
+    },
+    {
+      "id": 18,
+      "name": "Fenchurch St Station",
+      "color": "station",
+      "price": 200,
+      "rent": 25,
+      "owner": null
+    },
+    {
+      "id": 19,
+      "name": "Leicester Square",
+      "color": "yellow",
+      "price": 260,
+      "rent": 22,
+      "owner": null
+    },
+    {
+      "id": 20,
+      "name": "Coventry Street",
+      "color": "yellow",
+      "price": 260,
+      "rent": 22,
+      "owner": null
+    },
+    {
+      "id": 21,
+      "name": "Water Works",
+      "color": "utility",
+      "price": 150,
+      "rent": 4,
+      "owner": null
+    },
+    {
+      "id": 22,
+      "name": "Piccadilly",
+      "color": "yellow",
+      "price": 280,
+      "rent": 24,
+      "owner": null
+    },
+    {
+      "id": 23,
+      "name": "Regent Street",
+      "color": "green",
+      "price": 300,
+      "rent": 26,
+      "owner": null
+    },
+    {
+      "id": 24,
+      "name": "Oxford Street",
+      "color": "green",
+      "price": 300,
+      "rent": 26,
+      "owner": null
+    },
+    {
+      "id": 25,
+      "name": "Bond Street",
+      "color": "green",
+      "price": 320,
+      "rent": 28,
+      "owner": null
+    },
+    {
+      "id": 26,
+      "name": "Liverpool St Station",
+      "color": "station",
+      "price": 200,
+      "rent": 25,
+      "owner": null
+    },
+    {
+      "id": 27,
+      "name": "Park Lane",
+      "color": "darkblue",
+      "price": 350,
+      "rent": 35,
+      "owner": null
+    },
+    {
+      "id": 28,
+      "name": "Mayfair",
+      "color": "darkblue",
+      "price": 400,
+      "rent": 50,
+      "owner": null
+    }
+  ],
+  "upgradeCosts": {
+    "house": 50,
+    "hotel": 50
+  },
+  "wholeStreetPremium": 1.5
+}

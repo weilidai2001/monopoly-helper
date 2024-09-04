@@ -7,12 +7,12 @@ function PropertyItem({ property, updateProperty }) {
   const houseOptions = [0, 1, 2, 3, 4, 'Hotel'];
 
   const handleOwnerChange = (newOwner) => {
-    updateProperty({ ...property, owner: newOwner });
+    updateProperty({ ...property, owner: newOwner, houses: 0, hotel: false });
   };
 
   const handleHouseChange = (houses) => {
     if (houses === 'Hotel') {
-      updateProperty({ ...property, houses: 0, hotel: true });
+      updateProperty({ ...property, houses: 5, hotel: true });
     } else {
       updateProperty({ ...property, houses, hotel: false });
     }
@@ -81,12 +81,12 @@ function PropertyItem({ property, updateProperty }) {
               fontSize: '16px',
               backgroundColor: 
                 (option === 'Hotel' && property.hotel) ||
-                (option !== 'Hotel' && property.houses === option)
+                (option !== 'Hotel' && !property.hotel && property.houses === option)
                   ? '#4CAF50'
                   : '#f0f0f0',
               color: 
                 (option === 'Hotel' && property.hotel) ||
-                (option !== 'Hotel' && property.houses === option)
+                (option !== 'Hotel' && !property.hotel && property.houses === option)
                   ? 'white'
                   : 'black',
               border: 'none',

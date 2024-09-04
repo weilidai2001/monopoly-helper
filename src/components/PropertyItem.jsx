@@ -30,7 +30,8 @@ function PropertyItem({ property, updateProperty }) {
         boxShadow: isHovered ? '0 4px 8px rgba(0,0,0,0.2)' : 'none',
         height: '100%', // Fill the entire grid cell
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        boxSizing: 'border-box'
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

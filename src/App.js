@@ -39,16 +39,12 @@ function App() {
 
   const updateProperty = (updatedProperty) => {
     setProperties(prevProperties => {
-      // First, update the specific property
+      // Update the specific property
       let newProperties = prevProperties.map(prop => 
         prop.id === updatedProperty.id ? {...updatedProperty, baseRent: prop.baseRent} : prop
       );
 
-      // Check if the whole street is now owned by the same player
-      const sameColorProperties = newProperties.filter(p => p.color === updatedProperty.color);
-      const wholeStreetOwned = sameColorProperties.every(p => p.owner === updatedProperty.owner && p.owner !== null);
-
-      // Always update rent for all properties of the same color
+      // Recalculate rent for all properties of the same color
       newProperties = newProperties.map(prop => {
         if (prop.color === updatedProperty.color) {
           return {

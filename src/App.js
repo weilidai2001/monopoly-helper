@@ -59,6 +59,8 @@ function App() {
     });
   };
 
+  console.log('App.js loaded', new Date().toISOString());
+
   return (
     <div className="App">
       <h1>Monopoly Helper</h1>

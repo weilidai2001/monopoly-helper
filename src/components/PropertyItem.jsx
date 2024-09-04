@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CURRENCY_SYMBOL } from '../config';
 
 function PropertyItem({ property, updateProperty }) {
+  const [isHovered, setIsHovered] = useState(false);
   const owners = ['Vacant', 'Player 1', 'Player 2', 'Player 3'];
   const houseOptions = [0, 1, 2, 3, 4, 'Hotel'];
 
@@ -18,7 +19,22 @@ function PropertyItem({ property, updateProperty }) {
   };
 
   return (
-    <li className="property-item" style={{ border: `2px solid ${property.color}`, padding: '10px', margin: '10px 0', borderRadius: '8px' }}>
+    <li 
+      className="property-item" 
+      style={{ 
+        border: `2px solid ${property.color}`, 
+        padding: '10px', 
+        borderRadius: '8px',
+        transition: 'all 0.3s ease',
+        transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+        boxShadow: isHovered ? '0 4px 8px rgba(0,0,0,0.2)' : 'none',
+        height: '100%', // Fill the entire grid cell
+        display: 'flex',
+        flexDirection: 'column'
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <h3 style={{ marginTop: 0 }}>{property.name}</h3>
       <p>Rent: {CURRENCY_SYMBOL}{property.rent}</p>
       <p>Purchase Price: {CURRENCY_SYMBOL}{property.price}</p>
@@ -46,7 +62,7 @@ function PropertyItem({ property, updateProperty }) {
         ))}
       </div>
 
-      <div className="house-buttons" style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
+      <div className="house-buttons" style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginTop: 'auto' }}>
         <p style={{ width: '100%', margin: '5px 0' }}>Houses/Hotel:</p>
         {houseOptions.map((option) => (
           <button

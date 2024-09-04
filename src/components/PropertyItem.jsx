@@ -30,9 +30,10 @@ function PropertyItem({ property, updateProperty }) {
         boxSizing: 'border-box'
       }}
     >
-      <h3 style={{ marginTop: 0 }}>{property.name}</h3>
-      <p>Rent: {CURRENCY_SYMBOL}{property.rent}</p>
-      <p>Purchase Price: {CURRENCY_SYMBOL}{property.price}</p>
+      <h3 style={{ marginTop: 0, marginBottom: '5px' }}>{property.name}</h3>
+      <p style={{ margin: '0 0 10px 0', fontSize: '0.9em' }}>
+        Rent: {CURRENCY_SYMBOL}{property.rent} | Price: {CURRENCY_SYMBOL}{property.price}
+      </p>
       
       <div className="owner-buttons" style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '10px' }}>
         <p style={{ width: '100%', margin: '5px 0' }}>Owner:</p>

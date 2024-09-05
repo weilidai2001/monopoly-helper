@@ -18,9 +18,10 @@ function App() {
   const calculateRent = (property, allProperties) => {
     let rent = property.baseRent;
     
-    // Check if the whole street is owned by the same player
+    // Check if the whole street is owned by the same player (excluding "Vacant" and null)
     const sameColorProperties = allProperties.filter(p => p.color === property.color);
-    const wholeStreetOwned = sameColorProperties.every(p => p.owner === property.owner && p.owner !== null);
+    const wholeStreetOwned = property.owner !== "Vacant" && property.owner !== null &&
+      sameColorProperties.every(p => p.owner === property.owner);
     
     if (property.houses > 0 || property.hotel) {
       // Use a multiplier based on the number of houses or hotel
@@ -29,7 +30,7 @@ function App() {
       rent = property.baseRent * rentMultipliers[index];
     }
 
-    // Apply whole street premium to the rent, even if houses are built
+    // Apply whole street premium to the rent, even if houses are built, but not for "Vacant" or null owners
     if (wholeStreetOwned && property.color !== 'utility' && property.color !== 'station') {
       rent *= gameRules.wholeStreetPremium;
     }

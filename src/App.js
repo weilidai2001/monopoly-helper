@@ -9,7 +9,8 @@ function App() {
     // Add baseRent to each property
     const propertiesWithBaseRent = gameRules.properties.map(prop => ({
       ...prop,
-      baseRent: prop.rent
+      baseRent: prop.rent,
+      rent: prop.rent // Initialize rent to baseRent
     }));
     setProperties(propertiesWithBaseRent);
   }, []);
@@ -21,17 +22,16 @@ function App() {
     const sameColorProperties = allProperties.filter(p => p.color === property.color);
     const wholeStreetOwned = sameColorProperties.every(p => p.owner === property.owner && p.owner !== null);
     
-    // Apply whole street premium to the base rent
-    if (wholeStreetOwned && property.color !== 'utility' && property.color !== 'station') {
-      rent *= gameRules.wholeStreetPremium;
+    if (property.houses > 0 || property.hotel) {
+      // Use a multiplier based on the number of houses or hotel
+      const rentMultipliers = [1, 5, 15, 30, 40, 50]; // 0 houses, 1 house, 2 houses, 3 houses, 4 houses, hotel
+      const index = property.hotel ? 5 : property.houses;
+      rent = property.baseRent * rentMultipliers[index];
     }
 
-    if (property.houses > 0) {
-      // Use a multiplier based on the number of houses
-      const houseMultiplier = [1, 5, 15, 30, 40]; // Example multipliers
-      rent = rent * houseMultiplier[property.houses - 1];
-    } else if (property.hotel) {
-      rent = rent * 50; // Example hotel multiplier
+    // Apply whole street premium to the rent, even if houses are built
+    if (wholeStreetOwned && property.color !== 'utility' && property.color !== 'station') {
+      rent *= gameRules.wholeStreetPremium;
     }
 
     return Math.round(rent);

@@ -1,13 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import PropertyList from './components/PropertyList';
 import gameRules from './data/gameRules.json';
+import { CURRENCY_SYMBOL } from './config';
+
+interface Property {
+  id: number;
+  name: string;
+  color: string;
+  baseRent: number;
+  rent: number;
+  owner: string | null;
+  houses: number;
+  hotel: boolean;
+}
 
 function App() {
-  const [properties, setProperties] = useState([]);
+  const [properties, setProperties] = useState<Property[]>([]);
 
   useEffect(() => {
     // Add baseRent to each property
-    const propertiesWithBaseRent = gameRules.properties.map(prop => ({
+    const propertiesWithBaseRent = gameRules.properties.map((prop: any) => ({
       ...prop,
       baseRent: prop.rent,
       rent: prop.rent // Initialize rent to baseRent
@@ -15,7 +27,7 @@ function App() {
     setProperties(propertiesWithBaseRent);
   }, []);
 
-  const calculateRent = (property, allProperties) => {
+  const calculateRent = (property: Property, allProperties: Property[]): number => {
     let rent = property.baseRent;
     
     if (property.color === 'station') {
@@ -49,7 +61,7 @@ function App() {
     return Math.round(rent);
   };
 
-  const updateProperty = (updatedProperty) => {
+  const updateProperty = (updatedProperty: Property) => {
     setProperties(prevProperties => {
       // Update the specific property
       let newProperties = prevProperties.map(prop => 
@@ -66,11 +78,11 @@ function App() {
     });
   };
 
-  console.log('App.js loaded', new Date().toISOString());
+  console.log('App.tsx loaded', new Date().toISOString());
 
   return (
     <div className="App">
-      <h1>Monopoly Helper</h1>
+      <h1>Monopoly Helper {CURRENCY_SYMBOL}</h1>
       <PropertyList properties={properties} updateProperty={updateProperty} />
     </div>
   );

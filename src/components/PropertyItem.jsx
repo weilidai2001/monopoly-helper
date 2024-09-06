@@ -125,41 +125,43 @@ function PropertyItem({ property, updateProperty }) {
             ))}
           </div>
 
-          <div className="house-buttons" style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginTop: 'auto' }}>
-            <p style={{ width: '100%', margin: '5px 0' }}>Houses/Hotel:</p>
-            {houseOptions.map((option) => (
-              <button
-                key={option}
-                onClick={() => handleHouseChange(option)}
-                className={
-                  (option === 'Hotel' && property.hotel) ||
-                  (option !== 'Hotel' && property.houses === option)
-                    ? 'active'
-                    : ''
-                }
-                style={{
-                  flex: '1 0 calc(33.333% - 5px)',
-                  padding: '10px',
-                  fontSize: '16px',
-                  backgroundColor: 
+          {property.additionalHouseCost && (
+            <div className="house-buttons" style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginTop: 'auto' }}>
+              <p style={{ width: '100%', margin: '5px 0' }}>Houses/Hotel:</p>
+              {houseOptions.map((option) => (
+                <button
+                  key={option}
+                  onClick={() => handleHouseChange(option)}
+                  className={
                     (option === 'Hotel' && property.hotel) ||
-                    (option !== 'Hotel' && !property.hotel && property.houses === option)
-                      ? '#4CAF50'
-                      : '#f0f0f0',
-                  color: 
-                    (option === 'Hotel' && property.hotel) ||
-                    (option !== 'Hotel' && !property.hotel && property.houses === option)
-                      ? 'white'
-                      : 'black',
-                  border: 'none',
-                  borderRadius: '4px',
-                  cursor: 'pointer'
-                }}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
+                    (option !== 'Hotel' && property.houses === option)
+                      ? 'active'
+                      : ''
+                  }
+                  style={{
+                    flex: '1 0 calc(33.333% - 5px)',
+                    padding: '10px',
+                    fontSize: '16px',
+                    backgroundColor: 
+                      (option === 'Hotel' && property.hotel) ||
+                      (option !== 'Hotel' && !property.hotel && property.houses === option)
+                        ? '#4CAF50'
+                        : '#f0f0f0',
+                    color: 
+                      (option === 'Hotel' && property.hotel) ||
+                      (option !== 'Hotel' && !property.hotel && property.houses === option)
+                        ? 'white'
+                        : 'black',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+          )}
         </>
       )}
     </li>

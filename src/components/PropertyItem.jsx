@@ -42,7 +42,7 @@ function PropertyItem({ property, updateProperty }) {
         border: `2px solid ${property.color}`, 
         padding: '10px', 
         borderRadius: '8px',
-        height: isExpanded ? 'auto' : '120px', // Adjust height based on expanded state
+        height: isExpanded ? 'auto' : '70px', // Slightly reduced height
         display: 'flex',
         flexDirection: 'column',
         boxSizing: 'border-box',
@@ -51,37 +51,41 @@ function PropertyItem({ property, updateProperty }) {
         transition: 'height 0.3s ease-in-out' // Smooth transition for height change
       }}
     >
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '5px' }}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <h3 style={{ marginTop: 0, marginBottom: 0, marginRight: '10px' }}>{property.name}</h3>
-          <span style={{
-            backgroundColor: ownerBadge.color,
-            color: 'white',
-            padding: '2px 6px',
-            borderRadius: '12px',
-            fontSize: '0.8em',
-            fontWeight: 'bold'
-          }}>
-            {ownerBadge.text}
-          </span>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <h3 style={{ margin: 0, marginRight: '10px', fontSize: '1.1em' }}>{property.name}</h3>
+            <span style={{
+              backgroundColor: ownerBadge.color,
+              color: 'white',
+              padding: '2px 6px',
+              borderRadius: '12px',
+              fontSize: '0.8em',
+              fontWeight: 'bold'
+            }}>
+              {ownerBadge.text}
+            </span>
+          </div>
+          <p style={{ margin: '3px 0 0 0', fontSize: '0.9em' }}>
+            Rent: {CURRENCY_SYMBOL}{property.rent} | Price: {CURRENCY_SYMBOL}{property.price}
+          </p>
         </div>
         <button 
           onClick={() => setIsExpanded(!isExpanded)}
           style={{
             background: 'none',
             border: 'none',
-            fontSize: '1.5em',
+            fontSize: '1.2em',
             cursor: 'pointer',
             transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
-            transition: 'transform 0.3s ease-in-out'
+            transition: 'transform 0.3s ease-in-out',
+            padding: 0,
+            marginTop: '-5px'
           }}
         >
           ▼
         </button>
       </div>
-      <p style={{ margin: '0 0 10px 0', fontSize: '0.9em' }}>
-        Rent: {CURRENCY_SYMBOL}{property.rent} | Price: {CURRENCY_SYMBOL}{property.price}
-      </p>
       
       {isExpanded && (
         <>

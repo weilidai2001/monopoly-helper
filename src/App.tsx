@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropertyList from './components/PropertyList';
+import DiceRollModal from './components/DiceRollModal';
 import gameRules from './data/gameRules.json';
 import { CURRENCY_SYMBOL } from './config';
 import { calculateRent, Property } from './utils/calculateRent';
+import { FaDice } from 'react-icons/fa';
 
 function App() {
   const [properties, setProperties] = useState<Property[]>([]);
+  const [isDiceModalOpen, setIsDiceModalOpen] = useState(false);
 
   useEffect(() => {
     // Initialize properties with baseRent and calculated rent
@@ -43,8 +46,18 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Monopoly Helper {CURRENCY_SYMBOL}</h1>
+      <h1>
+        Monopoly Helper {CURRENCY_SYMBOL}
+        <FaDice 
+          onClick={() => setIsDiceModalOpen(true)} 
+          style={{ marginLeft: '10px', cursor: 'pointer' }}
+        />
+      </h1>
       <PropertyList properties={properties} updateProperty={updateProperty} />
+      <DiceRollModal 
+        isOpen={isDiceModalOpen} 
+        onClose={() => setIsDiceModalOpen(false)} 
+      />
     </div>
   );
 }

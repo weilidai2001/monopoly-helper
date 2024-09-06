@@ -1,0 +1,51 @@
+import React, { useState, useEffect } from 'react';
+import { FaDice } from 'react-icons/fa';
+import './DiceRollModal.css';
+
+const DiceRollModal = ({ isOpen, onClose }) => {
+  const [diceValues, setDiceValues] = useState([1, 1]);
+  const [isRolling, setIsRolling] = useState(false);
+
+  const rollDice = () => {
+    setIsRolling(true);
+    setTimeout(() => {
+      const newDiceValues = [
+        Math.floor(Math.random() * 6) + 1,
+        Math.floor(Math.random() * 6) + 1
+      ];
+      setDiceValues(newDiceValues);
+      setIsRolling(false);
+    }, 1500);
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      setDiceValues([1, 1]);
+      setIsRolling(false);
+    }
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <h2>Roll the Dice</h2>
+        <div className="dice-container">
+          {diceValues.map((value, index) => (
+            <div key={index} className={`dice ${isRolling ? 'rolling' : ''}`}>
+              {isRolling ? <FaDice className="dice-icon" /> : value}
+            </div>
+          ))}
+        </div>
+        <p className="total">Total: {diceValues.reduce((a, b) => a + b, 0)}</p>
+        <button className="roll-button" onClick={rollDice} disabled={isRolling}>
+          {isRolling ? 'Rolling...' : 'Roll Dice'}
+        </button>
+        <button className="close-button" onClick={onClose}>Close</button>
+      </div>
+    </div>
+  );
+};
+
+export default DiceRollModal;

@@ -18,6 +18,10 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.json$/,
+        type: 'json'
+      }
     ],
   },
   resolve: {
@@ -26,7 +30,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      title: 'Monopoly Helper 123', // Add this line
+      title: 'Monopoly Helper 123',
       inject: true,
     }),
   ],

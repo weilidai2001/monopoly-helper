@@ -8,6 +8,7 @@ function PropertyItem({ property, updateProperty }) {
 
   const handleOwnerChange = (newOwner) => {
     updateProperty({ ...property, owner: newOwner, houses: 0, hotel: false });
+    setIsExpanded(false);
   };
 
   const handleHouseChange = (houses) => {
@@ -16,6 +17,7 @@ function PropertyItem({ property, updateProperty }) {
     } else {
       updateProperty({ ...property, houses, hotel: false });
     }
+    setIsExpanded(false);
   };
 
   const getOwnerBadge = (owner) => {

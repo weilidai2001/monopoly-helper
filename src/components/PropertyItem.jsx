@@ -95,13 +95,23 @@ function PropertyItem({ property, updateProperty }) {
               <button
                 key={owner}
                 onClick={() => handleOwnerChange(owner)}
-                className={property.owner === owner ? 'active' : ''}
+                className={
+                  (property.owner === owner || (property.owner === null && owner === 'Vacant'))
+                    ? 'active'
+                    : ''
+                }
                 style={{
                   flex: '1 0 calc(50% - 5px)',
                   padding: '10px',
                   fontSize: '16px',
-                  backgroundColor: property.owner === owner ? '#4CAF50' : '#f0f0f0',
-                  color: property.owner === owner ? 'white' : 'black',
+                  backgroundColor: 
+                    (property.owner === owner || (property.owner === null && owner === 'Vacant'))
+                      ? '#4CAF50'
+                      : '#f0f0f0',
+                  color: 
+                    (property.owner === owner || (property.owner === null && owner === 'Vacant'))
+                      ? 'white'
+                      : 'black',
                   border: 'none',
                   borderRadius: '4px',
                   cursor: 'pointer'

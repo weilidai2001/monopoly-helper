@@ -44,7 +44,7 @@ function PropertyItem({ property, updateProperty }) {
         border: `2px solid ${property.color}`, 
         padding: '10px', 
         borderRadius: '8px',
-        height: isExpanded ? 'auto' : '70px', // Slightly reduced height
+        height: isExpanded ? 'auto' : '80px', // Slightly increased height to accommodate new info
         display: 'flex',
         flexDirection: 'column',
         boxSizing: 'border-box',
@@ -70,6 +70,7 @@ function PropertyItem({ property, updateProperty }) {
           </div>
           <p style={{ margin: '3px 0 0 0', fontSize: '0.9em' }}>
             Rent: {CURRENCY_SYMBOL}{property.rent} | Price: {CURRENCY_SYMBOL}{property.price}
+            {property.additionalHouseCost && ` | Upgrade: ${CURRENCY_SYMBOL}${property.additionalHouseCost}`}
           </p>
         </div>
         <button 

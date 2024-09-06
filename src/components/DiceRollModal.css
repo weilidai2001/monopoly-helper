@@ -36,7 +36,7 @@
 .dice {
   width: 80px;
   height: 80px;
-  background-color: white;
+  background-color: #4CAF50;
   border: 3px solid #4CAF50;
   border-radius: 15px;
   display: grid;
@@ -53,7 +53,7 @@
 .dot {
   width: 12px;
   height: 12px;
-  background-color: #4CAF50;
+  background-color: white;
   border-radius: 50%;
   align-self: center;
   justify-self: center;
@@ -88,7 +88,7 @@
 
 .dice-icon {
   font-size: 48px;
-  color: #4CAF50;
+  color: white;
 }
 
 @keyframes roll {

@@ -17,6 +17,23 @@ function PropertyItem({ property, updateProperty }) {
     }
   };
 
+  const getOwnerBadge = (owner) => {
+    switch(owner) {
+      case 'Vacant':
+        return { text: '?', color: '#808080' }; // Changed from 'V' to '?'
+      case 'Player 1':
+        return { text: 'P1', color: '#4CAF50' };
+      case 'Player 2':
+        return { text: 'P2', color: '#2196F3' };
+      case 'Player 3':
+        return { text: 'P3', color: '#FFC107' };
+      default:
+        return { text: '?', color: '#808080' };
+    }
+  };
+
+  const ownerBadge = getOwnerBadge(property.owner);
+
   return (
     <li 
       className="property-item" 
@@ -30,7 +47,19 @@ function PropertyItem({ property, updateProperty }) {
         boxSizing: 'border-box'
       }}
     >
-      <h3 style={{ marginTop: 0, marginBottom: '5px' }}>{property.name}</h3>
+      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '5px' }}>
+        <h3 style={{ marginTop: 0, marginBottom: 0, marginRight: '10px' }}>{property.name}</h3>
+        <span style={{
+          backgroundColor: ownerBadge.color,
+          color: 'white',
+          padding: '2px 6px',
+          borderRadius: '12px',
+          fontSize: '0.8em',
+          fontWeight: 'bold'
+        }}>
+          {ownerBadge.text}
+        </span>
+      </div>
       <p style={{ margin: '0 0 10px 0', fontSize: '0.9em' }}>
         Rent: {CURRENCY_SYMBOL}{property.rent} | Price: {CURRENCY_SYMBOL}{property.price}
       </p>

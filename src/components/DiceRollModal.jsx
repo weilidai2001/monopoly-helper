@@ -42,7 +42,6 @@ const DiceRollModal = ({ isOpen, onClose }) => {
             </div>
           ))}
         </div>
-        <p className="total">Total: {diceValues.reduce((a, b) => a + b, 0)}</p>
         <button className="roll-button" onClick={rollDice} disabled={isRolling}>
           {isRolling ? 'Rolling...' : 'Roll Dice'}
         </button>

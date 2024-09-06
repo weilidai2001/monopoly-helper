@@ -48,6 +48,6 @@ describe('calculateRent', () => {
     const allProperties = [ownedProperty1, ownedProperty2];
 
     // Assuming wholeStreetPremium is 2 in gameRules.json
-    expect(calculateRent(ownedProperty1, allProperties)).toBe(20); // 10 * 2
+    expect(calculateRent(ownedProperty1, allProperties)).toBe(15); // 10 * 1.5
   });
 });

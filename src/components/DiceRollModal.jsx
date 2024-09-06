@@ -27,14 +27,18 @@ const DiceRollModal = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
+  const renderDots = (value) => {
+    return Array(value).fill().map((_, i) => <div key={i} className="dot"></div>);
+  };
+
   return (
     <div className="modal-overlay">
       <div className="modal-content">
         <h2>Roll the Dice</h2>
         <div className="dice-container">
           {diceValues.map((value, index) => (
-            <div key={index} className={`dice ${isRolling ? 'rolling' : ''}`}>
-              {isRolling ? <FaDice className="dice-icon" /> : value}
+            <div key={index} className={`dice ${isRolling ? 'rolling' : ''} face-${value}`}>
+              {isRolling ? <FaDice className="dice-icon" /> : renderDots(value)}
             </div>
           ))}
         </div>
